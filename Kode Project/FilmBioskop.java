@@ -1,15 +1,15 @@
 import java.util.*;
 public class FilmBioskop{
 	// Array multi dimensional berisi jadwal film
-	final String [][] film = {	{"Avanger End Game", "12.00"},
-							  	{"Black Panther", "14.30"},
-								{"Thor Ragnarok", "15.30"},
-								{"Bucin", "16.00"},
-								{"Captain Marvel", "17.20"},
-								{"Single", "18.40"},
-								{"Habibie & Ainun 3", "20.00"},
-								{"Joker", "21.00"},
-								{"Dua Garis Biru (18+)", "22.00"}};
+	 String [][] film = {{"Avanger End Game", "12.00"},
+			     {"Black Panther", "14.30"},
+			     {"Thor Ragnarok", "15.30"},
+			     {"Bucin", "16.00"},
+			     {"Captain Marvel", "17.20"},
+			     {"Single", "18.40"},
+			     {"Habibie & Ainun 3", "20.00"},
+			     {"Joker", "21.00"},
+			     {"Dua Garis Biru (18+)", "22.00"}};
 	// index pertama(bangku[0]) = Huruf bangku
 	// inedex kedua (bangku[0][0])= nomor bangku
 	String [][] bangku = {{"1.A","2.A","3.A","4.A","5.A","6.A","7.A","8.A","9.A","10.A","11.A","12.A"},
@@ -21,19 +21,21 @@ public class FilmBioskop{
 						  {"1.G","2.G","3.G","4.G","5.G","6.G","7.G","8.G","9.G","10.G","11.G","12.G"}};
 	
 	//Variable Class 
-	int pilihFilm;
+	public static int pilihFilm;
 	int hargaFilm = 50_000;
-	public int totalHargaFilm;
+	public static int totalHargaFilm;
 
-	public ArrayList <String> pilihanBangku = new ArrayList <String>();
+	public static ArrayList <String> pilihanBangku = new ArrayList <String>();
 
 	// Constructor FilmBioskop
-	public FilmBioskop(Scanner huruf,Scanner angka){
-		jadwalFilm(huruf,angka);
+	public FilmBioskop(){
+	}
+	public FilmBioskop(Scanner in){
+		jadwalFilm(in);
 	}
 
 	// Menampilkan Jadwal Film
-	public void jadwalFilm(Scanner huruf,Scanner angka){
+	public void jadwalFilm(Scanner in){
 		
 		boolean checkFilm = true;
 		boolean checkBangku = true;
@@ -47,7 +49,7 @@ public class FilmBioskop{
 		// Pemilihan film bioskop
 		do{
 			System.out.print("\nPilih Film Yang ingin ditonton: ");
-			pilihFilm = angka.nextInt();
+			pilihFilm = in.nextInt();
 			if(pilihFilm > film.length || pilihFilm <= 0){
 				System.out.println("Pilihan Tidak Valid");
 				checkFilm = true;
@@ -68,7 +70,7 @@ public class FilmBioskop{
 				do{
 					do{
 						System.out.print("Pilih Bangku: ");
-						bangkuUser = huruf.next().toUpperCase();
+						bangkuUser = in.next().toUpperCase();
 						int no = encodeNo(bangkuUser);
 						int huruf1 = encodeHuruf(bangkuUser);
 						//Pengecekkan bangku
@@ -84,28 +86,16 @@ public class FilmBioskop{
 
 					pilihanBangku.add(bangkuUser);
 					System.out.print("Apakah Anda Ingin Menambah Bangku Lagi? (Y/N): ");
-					String nambah = huruf.next();
+					String nambah = in.next();
 					checkLagi = nambah.equalsIgnoreCase("y");
 
 					layarBioskop();
 
 				}while(checkLagi);
-				MakanMinum objectMakan = new MakanMinum(huruf,angka);
-
-					// boolean checkMakan = true;
-				
-					// do{
-					// 	System.out.print("Ingin Memesan Makanan/Minuman? (Y/N): ");
-					// 	String makan = in.next();
-					// 	if(makan.equalsIgnoreCase("y") || makan.equalsIgnoreCase("n")){
-					// 		MakanMinum objectMakan = new MakanMinum(in);
-					// 		checkMakan = false;
-					// 	}
-					// 	else{
-					// 		checkMakan = true;
-					// 	}
-					// }while(checkMakan);
+				totalHargaFilm = hargaFilm * pilihanBangku.size();
+				MakanMinum objectMakan = new MakanMinum(in);
 	}
+
 
 	public String encodeBangku(String bangkuUser){
 		String [] nomor = bangkuUser.split("\\.");
