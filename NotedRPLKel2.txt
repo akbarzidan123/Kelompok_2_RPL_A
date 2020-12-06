@@ -1,0 +1,10 @@
+Program Bioskop Online RPL
+
+Note
+- Jalankan file dengan nama "ProjectRPL.java"
+- Format Input Data Diri
+  Nama (Harus berupa huruf)
+  Nomor telfon (Harus angka 8-14 digit
+  Email(Opsional) Contoh Rpl@gmail.com
+			 Rpl123@gmail.com
+  Isi Saldo Minimal Rp. 10.000
