@@ -14,7 +14,9 @@ public class Pembayaran{
 		String nama = objData.nama;
 		String film = objFilm.film[objFilm.pilihFilm-1][0];
 		String waktuFilm = objFilm.film[objFilm.pilihFilm][1];
-
+		System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
+		System.out.println("		Menu Pembayaran");
+		System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
 		System.out.println(String.format("%-18s: "+nama,"Nama Pemesan"));
 		System.out.println(String.format("%-18s: "+film,"Judul Film"));
 		System.out.println(String.format("%-18s: "+kodeTiket(objFilm,film,nama),"Kode Tiket"));
@@ -59,6 +61,7 @@ public class Pembayaran{
 			System.out.println("YEEEEEYY PEMBELIAN BERHASIL");
 			System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
 			System.out.println(String.format("%-18s: Rp."+(objData.saldo-totalHarga),"Sisa Saldo"));
+			System.exit(0);
 		}
 		else{
 			System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
