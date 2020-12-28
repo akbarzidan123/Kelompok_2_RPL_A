@@ -1,6 +1,6 @@
 import java.util.*;
 public class Pembayaran{
-
+	static String nama,film,waktuFilm;
 	//Konstruktor Pembayaran
 	public Pembayaran(Scanner in){
 		FilmBioskop objFilm = new FilmBioskop();
@@ -11,9 +11,9 @@ public class Pembayaran{
 
 	public static void bayar(Scanner in, FilmBioskop objFilm, MakanMinum objMakan,InputDataDiri objData){
 		//Deklarasi nama objek
-		String nama = objData.nama;
-		String film = objFilm.film[objFilm.pilihFilm-1][0];
-		String waktuFilm = objFilm.film[objFilm.pilihFilm][1];
+		nama = objData.nama;
+		film = objFilm.film[objFilm.pilihFilm-1][0];
+		waktuFilm = objFilm.film[objFilm.pilihFilm][1];
 		System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
 		System.out.println("		Menu Pembayaran");
 		System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
