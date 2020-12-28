@@ -70,15 +70,24 @@ public class InputDataDiri{
 		}while(tanyaEmail);
 
 		// Isi Saldo
+		String isiSaldo;
 		do{
+			long simpan;
 			System.out.print(String.format("%-15s: Rp.","Isi Saldo"));
-			saldo += in.nextLong();
-			if(saldo >= 10_000){
-				cSaldo = false;
+			isiSaldo = in.next();
+			if(!isiSaldo.matches("[0-9]+")){
+				System.out.println("Inputan Harus Angka!");
 			}
 			else{
-				System.out.println("Minimal Saldo yang diisi sebesar Rp.10.000");
-				cSaldo = true;
+				simpan = Long.parseLong(isiSaldo); 
+				if(simpan >= 10_000){
+					cSaldo = false;
+					saldo += simpan;
+				}
+				else{
+					System.out.println("Minimal Saldo yang diisi sebesar Rp.10.000");
+					cSaldo = true;
+				}
 			}
 		}while(cSaldo);
 		checkDataDiri(in);
@@ -129,21 +138,30 @@ public class InputDataDiri{
 					System.out.println("---------------------------");
 					System.out.println("     Silahkan Isi Saldo    ");
 					System.out.println("---------------------------");
+					String isiSaldo;
+						long simpan;
 					do{
 						System.out.print(String.format("Memasukkan Nominal: Rp."));
-						saldo += in.nextInt();
-						if(saldo >= 10_000){
-							cSaldo = false;
+						isiSaldo = in.next();
+						if(!isiSaldo.matches("[0-9]+")){
+							System.out.println("Inputan Harus Angka!");
 						}
 						else{
-							System.out.println("Minimal Saldo yang diisi sebesar Rp.10.000");
-							cSaldo = true;
+							simpan = Long.parseLong(isiSaldo); 
+							if(simpan >= 10_000){
+								cSaldo = false;
+								saldo += simpan;
+							}
+							else{
+								System.out.println("Minimal Saldo yang diisi sebesar Rp.10.000");
+								cSaldo = true;
+							}
 						}
 					}while(cSaldo);
 					checkDataDiri(in);
-				break;
+					break;
 				case 4:
-				System.exit(1);
+					System.exit(1);
 			}
 
 		}while(true);
