@@ -120,7 +120,12 @@ public class MakanMinum{
 				}
 				else{
 					jumlahMinuman = Integer.parseInt(checkJumlahMinuman);
-					break;
+					if(jumlahMinuman > 0){
+						break;
+					}
+					else{
+						System.out.println("Minimal Pemesanan yaitu 1");
+					}		
 				}
 			}while(true);
 			
@@ -198,7 +203,12 @@ public class MakanMinum{
 				}
 				else{
 					jumlahMakanan = Integer.parseInt(checkJumlahMakanan);
-					break;
+					if(jumlahMakanan > 0){
+						break;
+					}
+					else{
+						System.out.println("Minimal Pemesanan yaitu 1");
+					}
 				}
 			}while(true);
 			makananUser.add(makanan[pilihMakanan-1]);
